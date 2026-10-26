@@ -1,0 +1,16 @@
+#!/bin/sh
+
+mount -t proc proc /proc 2>/dev/null
+mount -t sysfs sysfs /sys 2>/dev/null
+mount -t devtmpfs devtmpfs /dev 2>/dev/null
+mount -a 2>/dev/null
+
+echo
+echo "================================"
+echo "        BULLDOG OS"
+echo "        LEGO EV3"
+echo "================================"
+
+if [ -x /usr/local/sbin/bulldog_boot ]; then
+    /usr/local/sbin/bulldog_boot >/dev/null 2>&1 || true
+fi

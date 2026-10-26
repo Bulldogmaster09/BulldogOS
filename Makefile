@@ -7,11 +7,12 @@ all: rootfs
 busybox:
 	./scripts/build-busybox.sh
 
-rootfs:
+rootfs: busybox
 	./scripts/build-rootfs.sh
 
-image:
+image: rootfs
 	./scripts/make-image.sh
 
 clean:
-	rm -rf $(ROOTFS)/bin/* $(ROOTFS)/sbin/* $(ROOTFS)/usr
+	@echo "Limpeza desativada por segurança."
+	@echo "Nenhum arquivo foi removido."
